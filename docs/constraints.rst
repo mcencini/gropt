@@ -12,7 +12,7 @@ Most constraints are subject to a 1% cushion to help convergence of the optimiza
 Gradient Strength
 ==================
 
-Maximum gradient strength :math:`(G_{max})` is defined in :math:`\dfrac{T}{s}`
+Maximum gradient strength :math:`(G_{max})` is defined in :math:`\dfrac{T}{m}`
 
 This constraint simply clips the gradient waveforms so that all values must be in the range :math:`(-G_{max}, G_{max})`
 
