@@ -1,8 +1,9 @@
 import os, sys, subprocess
 
-def build_gropt(debug = False):
+
+def build_gropt(debug=False):
     cwd = os.getcwd()
-    gropt_path = os.getcwd().rsplit('python', 1)[0] + 'python'
+    gropt_path = os.getcwd().rsplit("python", 1)[0] + "python"
     imported = False
 
     if not gropt_path == cwd:
@@ -10,10 +11,13 @@ def build_gropt(debug = False):
         print(gropt_path, cwd)
         os.chdir(gropt_path)
 
-    out = subprocess.run(["python", "setup.py", "build_ext", "--inplace"], stdout=subprocess.PIPE)
+    out = subprocess.run(
+        ["python", "setup.py", "build_ext", "--inplace"], stdout=subprocess.PIPE
+    )
 
     try:
         import gropt
+
         imported = True
     except:
         pass
