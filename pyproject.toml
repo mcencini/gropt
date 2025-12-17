@@ -28,6 +28,7 @@ dependencies = [
   "matplotlib>=3.5.2",
   "numpy>=1.19.5",
   "scipy>=1.8.1",
+  "seaborn",
 ]
 
 [project.optional-dependencies]
@@ -38,6 +39,7 @@ test = [
   "pytest",
   "pytest-cov<6.1",
   "pytest-xdist",
+  "hdf5storage",
 ]
 docs = ["sphinx", "jinja2", "furo", "recommonmark"]
 
@@ -130,13 +132,20 @@ locale = "en-us"
 
 # PyTest section
 [tool.pytest.ini_options]
+minversion = "6.0"
+pythonpath  = ["tests"]
 testpaths = ["tests"]
+addopts = [
+    "--import-mode=importlib",
+    "--cov=gropt",
+    "--cov-report=term-missing",
+    "--cov-report=xml"
+]
 filterwarnings = [
   "error",
   # Suppress error in debugpy due to mpl deprecation to debug tests.
   "ignore::matplotlib._api.deprecation.MatplotlibDeprecationWarning:pydev",
 ]
-markers = ["sigpy: tests that require sigpy"]
 
 [tool.codespell]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file

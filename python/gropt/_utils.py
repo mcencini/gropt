@@ -233,8 +233,7 @@ def get_min_TE_diff(
         params['TE'] = T_lo + (T_range) / 2.0
         if verbose:
             print(' %.3f' % params['TE'], end='', flush=True)
-        G, ddebug = gropt.gropt(params)
-        ddebug[14]
+        G, _ = gropt(params)
         bval = get_bval(G, params)
         if bval > target_bval:
             T_hi = params['TE']
@@ -295,7 +294,7 @@ def get_min_TE_free(
         params['TE'] = T_lo + (T_range) / 2.0
         if verbose:
             print(' %.3f' % params['TE'], end='', flush=True)
-        G, ddebug = gropt.gropt(params)
+        G, ddebug = gropt(params)
         lim_break = ddebug[14]
         if lim_break == 0:
             T_hi = params['TE']

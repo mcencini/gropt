@@ -3,12 +3,11 @@ High-level Python wrapper for GrOpt bindings.
 
 This module mirrors the original Cython API, using the pybind11 extension
 ``_gropt_binding`` and provides NumPy-friendly helpers.
-
 """
 
 from __future__ import annotations
 
-__all__ = ['gropt']
+__all__ = []
 
 from typing import Any
 
